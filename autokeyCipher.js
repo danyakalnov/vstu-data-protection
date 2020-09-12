@@ -14,9 +14,31 @@ const cipher = (text, key) => {
     }
   
     for (let i = 0; i < text.length; i++) {
-      let encryptedSymbol = encryptSymbol(text[i], resultKey[i])
+      let encryptedSymbol = encryptSymbol(text[i], resultKey[i]);
       cipherText += encryptedSymbol;
     }
   
     return [cipherText, autokey];
 }
+
+const decipher = (encryptedText, key) => {
+  let decryptedText = '';
+  let currentKey = key;
+
+  const decryptSymbol = (textSymbol, keySymbol) => {
+    let decryptedSymbolIndex = (alphabet.indexOf(textSymbol) - alphabet.indexOf(keySymbol)) % alphabetPower;
+    if (decryptedSymbolIndex < 0) decryptedSymbolIndex += alphabetPower;
+    let decryptedSymbol = alphabet[decryptedSymbolIndex];
+
+    return decryptedSymbol;
+  }
+
+  for (let i = 0; i < encryptedText.length; i++) {
+    let decryptedSymbol = decryptSymbol(text[i], key[i]);
+    decryptedText += decryptedSymbol;
+    currentKey += decryptedSymbol;
+  }
+
+  return decryptedText;
+}
+
