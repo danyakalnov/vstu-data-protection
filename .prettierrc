@@ -1,7 +1,21 @@
 {
-  "semi": false,
-  "trailingComma": "all",
-  "singleQuote": true,
-  "printWidth": 100,
-  "tabWidth": 2
+  "tabwidth": 4,
+  "overrides": [
+    {
+      "files": ["*.js", "*.ts"],
+      "options": {
+        "semi": false,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "printWidth": 100,
+        "tabWidth": 2
+      }
+    },
+    {
+      "files": ["*.html"],
+      "options": {
+        "tabWidth": 4
+      }
+    }
+  ]
 }
