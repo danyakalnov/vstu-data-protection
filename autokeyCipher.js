@@ -1,12 +1,19 @@
-const alphabet = []
+const ruAlphabet = []
+const enAlphabet = []
+const specialChars = []
 
-for (let i = 32; i <= 126; i++) {
-  alphabet.push(String.fromCharCode(i))
-}
+for (let i = 32; i <= 64; i++) specialChars.push(String.fromCharCode(i))
+for (let i = 91; i <= 96; i++) specialChars.push(String.fromCharCode(i))
+for (let i = 123; i <= 126; i++) specialChars.push(String.fromCharCode(i))
 
 for (let i = 1040; i <= 1103; i++) {
-  alphabet.push(String.fromCharCode(i))
+  ruAlphabet.push(String.fromCharCode(i))
 }
+
+for (let i = 65; i <= 90; i++) enAlphabet.push(String.fromCharCode(i))
+for (let i = 97; i <= 122; i++) enAlphabet.push(String.fromCharCode(i))
+
+let alphabet = specialChars.concat(ruAlphabet).concat(enAlphabet)
 
 const alphabetPower = alphabet.length
 
