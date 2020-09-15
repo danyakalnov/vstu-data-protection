@@ -37,7 +37,7 @@ const askUserForInput = (operationType) => {
   return inquirer.prompt(questions)
 }
 
-const run = async () => {
+const run = () => {
   askUserForOperationType().then((value) => {
     const operationType = operationTypes[value.operationType[0]]
     askUserForInput(operationType).then((inputData) => {
